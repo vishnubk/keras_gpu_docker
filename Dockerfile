@@ -38,7 +38,8 @@ RUN apt-get update -qq \
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
     python-matplotlib \
-    python-pillow
+    python-pillow \
+    python3-tk
 
 # install dependencies from python packages
 RUN pip3 --no-cache-dir install -U \
