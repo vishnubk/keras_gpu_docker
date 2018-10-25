@@ -47,7 +47,8 @@ RUN pip3 --no-cache-dir install -U \
     pandas \
     seaborn \
     scikit-learn \
-    statsmodels
+    statsmodels \
+    scikit-image
 
 ARG TENSORFLOW_VERSION=1.5.0
 ARG TENSORFLOW_DEVICE=gpu
