@@ -7,7 +7,10 @@ FROM gw000/debian-cuda:9.1_7.0
 MAINTAINER Vishnu Balakrishnan <vishnubk93@gmail.com>
 
 # install debian packages
+
 ENV DEBIAN_FRONTEND noninteractive
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
     # install essentials
@@ -32,13 +35,14 @@ RUN apt-get update -qq \
     python3-h5py \
     python3-yaml \
     python3-pydot \
+    nvidia-modprobe \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
-    python-matplotlib \
-    python-pillow \
+    python3-matplotlib \
+    python3-pillow \
     python3-tk
 
 # install dependencies from python packages
